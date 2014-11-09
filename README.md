@@ -1,4 +1,4 @@
-# Play Rdio playlists from Vim
+# Control Rdio from Vim
 
 Requirements:
 
