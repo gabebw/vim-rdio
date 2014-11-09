@@ -14,14 +14,24 @@ Requirements:
 Install this plugin with your preferred Vim plugin manager, like [Vundle] or
 [pathogen].
 
+[Vundle]: https://github.com/gmarik/Vundle.vim
+[pathogen]: https://github.com/tpope/vim-pathogen
+
 Now you have some neat Vim commands:
 
 * `:RdioPlaylists`, which lets you fuzzy-find through your Rdio playlists
 * `:RdioPlayPause`, which plays/pauses Rdio
 * `:RdioNext`, which goes to the next track
 
-[Vundle]: https://github.com/gmarik/Vundle.vim
-[pathogen]: https://github.com/tpope/vim-pathogen
+You might want to add [mappings] for them:
+
+[mappings]: http://learnvimscriptthehardway.stevelosh.com/chapters/05.html
+
+```vim
+nnoremap <Leader>rp :RdioPlayPause<CR>
+nnoremap <Leader>rpp :RdioPlaylists<CR>
+nnoremap <Leader>rn :RdioNext<CR>
+```
 
 ## Development
 
