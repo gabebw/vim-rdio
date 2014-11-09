@@ -21,5 +21,11 @@ function! s:RdioPlayPause()
   call system(command)
 endfunction
 
+function! s:RdioNext()
+  let command = s:ApplescriptCommand('rdio-next.scpt')
+  call system(command)
+endfunction
+
 command! RdioPlaylists call s:RdioPlaylists()
 command! RdioPlayPause call s:RdioPlayPause()
+command! RdioNext call s:RdioNext()
