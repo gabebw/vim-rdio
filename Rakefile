@@ -23,5 +23,4 @@ task :render_scpt do
   end
 end
 
-
 task default: :render_scpt
