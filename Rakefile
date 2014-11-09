@@ -12,20 +12,16 @@ end
 OUTPUT = "./plugin/applescripts/"
 FileUtils.mkdir_p(OUTPUT)
 
-desc "Create the rdio-lists-playlists.scpt file"
-task :list_playlists do
-  list_playlists_contents = File.read("rdio-list-playlists.scpt.in")
-  result = ERB.new(list_playlists_contents).result(binding)
-
-  File.new(OUTPUT + "rdio-list-playlists.scpt", "w").write(result)
+desc "Render all .scpt.in files into .scpt files"
+task :render_scpt do
+  scpt_in_file_paths = Dir.glob("*.scpt.in")
+  scpt_in_file_paths.each do |scpt_in_file_path|
+    output_file_path = scpt_in_file_path.sub("scpt.in", "scpt")
+    contents = File.read(scpt_in_file_path)
+    result = ERB.new(contents).result(binding)
+    File.new(OUTPUT + output_file_path, "w").write(result)
+  end
 end
 
-desc "Create the rdio-play-specific-playlist.scpt file"
-task :play_specific_playlist do
-  play_specific_playlist_contents = File.read("rdio-play-specific-playlist.scpt.in")
-  result = ERB.new(play_specific_playlist_contents).result(binding)
 
-  File.new(OUTPUT + "rdio-play-specific-playlist.scpt", "w").write(result)
-end
-
-task default: [:list_playlists, :play_specific_playlist]
+task default: :render_scpt
