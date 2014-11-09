@@ -20,5 +20,6 @@ function findRdioTab(){
 function run(argv) {
   var rdioTab = findRdioTab();
   var defineNext = "function next(){   $('button.next').click(); }";
-  rdioTab.execute({javascript: 'next()'})
+  rdioTab.execute({javascript: defineNext});
+  rdioTab.execute({javascript: 'next()'});
 }

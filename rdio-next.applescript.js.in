@@ -5,5 +5,6 @@
 function run(argv) {
   var rdioTab = findRdioTab();
   var defineNext = "<%= minify_javascript("next.js") %>";
-  rdioTab.execute({javascript: 'next()'})
+  rdioTab.execute({javascript: defineNext});
+  rdioTab.execute({javascript: 'next()'});
 }
