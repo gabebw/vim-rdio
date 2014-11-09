@@ -28,8 +28,8 @@ You might want to add [mappings] for them:
 [mappings]: http://learnvimscriptthehardway.stevelosh.com/chapters/05.html
 
 ```vim
-nnoremap <Leader>rp :RdioPlayPause<CR>
-nnoremap <Leader>rpp :RdioPlaylists<CR>
+nnoremap <Leader>rpp :RdioPlayPause<CR>
+nnoremap <Leader>rpl :RdioPlaylists<CR>
 nnoremap <Leader>rn :RdioNext<CR>
 ```
 
