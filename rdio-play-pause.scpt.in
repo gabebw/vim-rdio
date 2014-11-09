@@ -1,0 +1,10 @@
+// vim: filetype=javascript
+
+<%= File.read("./js/findRdioTab.js") %>
+
+function run(argv) {
+  var rdioTab = findRdioTab();
+  var playPause = "<%= minify_javascript("playPause.js") %>";
+  rdioTab.execute({javascript: playPause});
+  rdioTab.execute({javascript: 'playPause()'})
+}

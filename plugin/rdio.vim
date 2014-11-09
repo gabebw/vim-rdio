@@ -16,4 +16,10 @@ function! s:RdioPlaylists()
   call system(command)
 endfunction
 
+function! s:RdioPlayPause()
+  let command = s:ApplescriptCommand('rdio-play-pause.scpt')
+  call system(command)
+endfunction
+
 command! RdioPlaylists call s:RdioPlaylists()
+command! RdioPlayPause call s:RdioPlayPause()
