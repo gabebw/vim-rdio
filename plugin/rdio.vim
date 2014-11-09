@@ -8,7 +8,7 @@ function! s:ApplescriptCommand(path)
   return "osascript -l JavaScript " . s:path_to_applescripts . a:path
 endfunction
 
-function! Rdio()
+function! s:RdioPlaylists()
   let source = s:ApplescriptCommand('rdio-list-playlists.scpt')
   let items = fzf#run({'source': source})
   let playlistName = shellescape(items[0])
@@ -16,4 +16,4 @@ function! Rdio()
   call system(command)
 endfunction
 
-command! Rdio call Rdio()
+command! RdioPlaylists call s:RdioPlaylists()
