@@ -19,7 +19,7 @@ function findRdioTab(){
 
 function run(argv) {
   var rdioTab = findRdioTab();
-  var playPause = "function playPause(){   $('.play_pause').click(); }";
-  rdioTab.execute({javascript: playPause});
+  var definePlayPause = "function playPause(){   $('.play_pause').click(); }";
+  rdioTab.execute({javascript: definePlayPause});
   rdioTab.execute({javascript: 'playPause()'})
 }
