@@ -6,7 +6,7 @@
 // some other languages.
 function run(argv) {
   var rdioTab = findRdioTab();
-  var defineFunctions = "<%= minify_javascript("getPlaylistNames.js") %>";
+  var defineFunctions = <%= minify_javascript("getPlaylistNames.js") %>;
   rdioTab.execute({javascript: defineFunctions});
   var result = rdioTab.execute({javascript: 'getPlaylistNames()'})
 

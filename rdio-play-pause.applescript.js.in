@@ -4,7 +4,7 @@
 
 function run(argv) {
   var rdioTab = findRdioTab();
-  var definePlayPause = "<%= minify_javascript("playPause.js") %>";
+  var definePlayPause = <%= minify_javascript("playPause.js") %>;
   rdioTab.execute({javascript: definePlayPause});
   rdioTab.execute({javascript: 'playPause()'})
 }

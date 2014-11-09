@@ -5,8 +5,8 @@ def minify_javascript(filename)
   contents = File.read("./js/" + filename)
   contents.gsub!(%r{^ *//.*\n}, "")
   contents.gsub!("\n", " ")
-  contents.gsub!('"', '\\"')
-  contents.strip
+  contents.strip!
+  '"' + contents.gsub('"', '\\"') + '"'
 end
 
 OUTPUT = "./plugin/applescripts/"
