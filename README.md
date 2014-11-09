@@ -2,6 +2,7 @@
 
 Requirements:
 
+* OS X, since it uses Applescript extensively
 * [fzf][fzf] (`brew install fzf`), with the [Vim plugin][fzf-vim] set up
 * fzf requires the `curses` Rubygem
 
