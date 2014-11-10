@@ -24,10 +24,12 @@ function findRdioTab(){
 // some other languages.
 function run(argv) {
   var rdioTab = findRdioTab();
-  var defineFunctions = "function getPlaylistNames(){   return _.map($('a.playlist'), function(a) { return $(a).prop('title'); }) }";
-  rdioTab.execute({javascript: defineFunctions});
-  var result = rdioTab.execute({javascript: 'getPlaylistNames()'})
+  if( rdioTab !== undefined ){
+    var defineFunctions = "function getPlaylistNames(){   return _.map($('a.playlist'), function(a) { return $(a).prop('title'); }) }";
+    rdioTab.execute({javascript: defineFunctions});
+    var result = rdioTab.execute({javascript: 'getPlaylistNames()'})
 
-  // The return value gets printed to STDOUT.
-  return result.join("\n");
+    // The return value gets printed to STDOUT.
+    return result.join("\n");
+  }
 }

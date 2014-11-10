@@ -10,11 +10,19 @@ function! s:ApplescriptCommand(path)
 endfunction
 
 function! s:RdioPlaylists()
-  let source = s:ApplescriptCommand('rdio-list-playlists')
-  let items = fzf#run({'source': source})
-  let playlistName = shellescape(items[0])
-  let command = s:ApplescriptCommand("rdio-play-specific-playlist") . " " . playlistName
-  call system(command)
+  let playlistsCommand = s:ApplescriptCommand('rdio-list-playlists')
+  let playlists = system(playlistsCommand)
+  " If rdio-list-playlists doesn't find anything, it prints out an LF. This
+  " usually happens when  Rdio isn't open.
+  let isEmpty = len(playlists) == 1
+  if isEmpty
+    echom "!! Rdio isn't open"
+  else
+    let items = fzf#run({'source': playlistsCommand})
+    let playlistName = shellescape(items[0])
+    let command = s:ApplescriptCommand("rdio-play-specific-playlist") . " " . playlistName
+    call system(command)
+  endif
 endfunction
 
 function! s:RdioPlayPause()
