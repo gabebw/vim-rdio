@@ -1,6 +1,6 @@
 # Control Rdio from Vim
 
-> potentially equivalently as useful as [Fugitive]
+> potentially as useful as [Fugitive]
 
 &mdash; [Someone on the internet](http://www.reddit.com/r/vim/comments/2n04wj/control_rdio_from_vim/cm978ag)
 
