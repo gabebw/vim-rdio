@@ -44,7 +44,7 @@ nnoremap <Leader>rn :RdioNext<CR>
 ## Development
 
 The files in `plugin/applescripts` are generated from the `.erb` files in the
-root directory , because they require minified JS that's easier to generate than
+root directory, because they require minified JS that's easier to generate than
 hand-code.
 
 To re-generate the files, run `rake`.
