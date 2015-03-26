@@ -9,7 +9,7 @@ function findRdioTab(){
     var window = app.windows[i];
     var possibleRdioTabs = window.tabs.whose({
       url: { _contains: "rdio.com" },
-      title: { _endsWith : "– Rdio" }
+      title: { _endsWith : "Rdio" }
     })
     if( possibleRdioTabs.length > 0 ){
       rdioTab = possibleRdioTabs.at(0);
