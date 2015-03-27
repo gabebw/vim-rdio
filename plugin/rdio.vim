@@ -35,6 +35,12 @@ function! s:RdioNext()
   call system(command)
 endfunction
 
+function! s:RdioFavorites()
+  let command = s:ApplescriptCommand('rdio-favorites')
+  call system(command)
+endfunction
+
 command! RdioPlaylists call s:RdioPlaylists()
 command! RdioPlayPause call s:RdioPlayPause()
 command! RdioNext call s:RdioNext()
+command! RdioFavorites call s:RdioFavorites()

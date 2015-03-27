@@ -30,15 +30,17 @@ Now you have some neat Vim commands:
 * `:RdioPlaylists`, which lets you fuzzy-find through your Rdio playlists
 * `:RdioPlayPause`, which plays/pauses Rdio
 * `:RdioNext`, which goes to the next track
+* `:RdioFavorites`, which plays only your favorited tracks
 
 You might want to add [mappings] for them:
 
 [mappings]: http://learnvimscriptthehardway.stevelosh.com/chapters/05.html
 
 ```vim
-nnoremap <Leader>rpp :RdioPlayPause<CR>
-nnoremap <Leader>rpl :RdioPlaylists<CR>
+nnoremap <Leader>rp :RdioPlayPause<CR>
+nnoremap <Leader>rl :RdioPlaylists<CR>
 nnoremap <Leader>rn :RdioNext<CR>
+nnoremap <Leader>rf :RdioFavorites<CR>
 ```
 
 ## Development

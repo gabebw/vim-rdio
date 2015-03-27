@@ -21,14 +21,13 @@ function findRdioTab(){
 
 
 var playCurrentPlaylist = "function playCurrentPlaylist(){   $(\".PlayButton:visible:first\").click(); }";
-var selectAndPlayPlaylist = "function selectAndPlayPlaylist(playlistName){   setTimeout(playCurrentPlaylist, 3000);    $(\"a.playlist[title='\" + playlistName + \"']\").click() }";
-var defineFunctions = playCurrentPlaylist + selectAndPlayPlaylist;
+var playFavorites = "function playFavorites(){   setTimeout(playCurrentPlaylist, 3000);    var $linkToFavoritesStation = $(\".user_nav .station_row\");   $linkToFavoritesStation.click(); }";
+var defineFunctions = playCurrentPlaylist + playFavorites;
 
 // The "run" function is automatically run when the file is run, like "main" in
 // some other languages.
 function run(argv){
   var rdioTab = findRdioTab();
-  var playlistName = argv[0];
   rdioTab.execute({javascript: defineFunctions});
-  rdioTab.execute({javascript: 'selectAndPlayPlaylist("' + playlistName + '")'})
+  rdioTab.execute({javascript: "playFavorites()"});
 }
