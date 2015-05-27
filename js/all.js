@@ -5,8 +5,8 @@ VimRdio.getPlaylistNames = function(){
 };
 
 VimRdio.next = function(){
-  // Also: R.player.next()
-  $("button.next").click();
+  // $("button.next").click();
+  R.player.next();
 };
 
 // Start playing the first song of the playlist whose page we're on.
@@ -22,8 +22,8 @@ VimRdio.playFavorites = function(){
 };
 
 VimRdio.playPause = function(){
-  // Also: R.player.playPause()
-  $(".play_pause").click();
+  // $(".play_pause").click();
+  R.player.playPause()
 };
 
 VimRdio.selectAndPlayPlaylist = function(playlistName){
