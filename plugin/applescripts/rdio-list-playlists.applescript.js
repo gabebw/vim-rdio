@@ -1,6 +1,8 @@
 // vim: filetype=javascript
 
-function findRdioTab(){
+var VimRdio = VimRdio || {};
+
+VimRdio.findRdioTab = function(){
   var app = Application("Google Chrome");
   var rdioTab = undefined;
 
@@ -23,11 +25,12 @@ function findRdioTab(){
 // The "run" function is automatically run when the file is run, like "main" in
 // some other languages.
 function run(argv) {
-  var rdioTab = findRdioTab();
+  var rdioTab = VimRdio.findRdioTab();
+
   if( rdioTab !== undefined ){
-    var defineFunctions = "function getPlaylistNames(){   return _.map($('a.playlist'), function(a) { return $(a).prop('title'); }) }";
-    rdioTab.execute({javascript: defineFunctions});
-    var result = rdioTab.execute({javascript: 'getPlaylistNames()'})
+    var defineFunctions = "var VimRdio = VimRdio || {};  VimRdio.getPlaylistNames = function(){   return _.map($(\"a.playlist\"), function(a) { return $(a).prop(\"title\"); }) };  VimRdio.next = function(){   $(\"button.next\").click(); };  VimRdio.playCurrentPlaylist = function(){   $(\".PlayButton:visible:first\").click(); };  VimRdio.playFavorites = function(){   setTimeout(VimRdio.playCurrentPlaylist, 3000);    var $linkToFavoritesStation = $(\".user_nav .station_row\");   $linkToFavoritesStation.click(); };  VimRdio.playPause = function(){   $(\".play_pause\").click(); };  VimRdio.selectAndPlayPlaylist = function(playlistName){   setTimeout(VimRdio.playCurrentPlaylist, 3000);    $(\"a.playlist[title='\" + playlistName + \"']\").click() }";
+    rdioTab.execute({javascript: defineFunctions})
+    var result = rdioTab.execute({javascript: "VimRdio.getPlaylistNames()"})
 
     // The return value gets printed to STDOUT.
     return result.join("\n");

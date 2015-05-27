@@ -1,4 +1,6 @@
-function findRdioTab(){
+var VimRdio = VimRdio || {};
+
+VimRdio.findRdioTab = function(){
   var app = Application("Google Chrome");
   var rdioTab = undefined;
 

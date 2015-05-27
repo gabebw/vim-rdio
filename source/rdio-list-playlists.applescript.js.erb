@@ -5,11 +5,12 @@
 // The "run" function is automatically run when the file is run, like "main" in
 // some other languages.
 function run(argv) {
-  var rdioTab = findRdioTab();
+  var rdioTab = VimRdio.findRdioTab();
+
   if( rdioTab !== undefined ){
-    var defineFunctions = <%= minify_javascript("getPlaylistNames.js") %>;
-    rdioTab.execute({javascript: defineFunctions});
-    var result = rdioTab.execute({javascript: 'getPlaylistNames()'})
+    var defineFunctions = <%= minify_javascript("all.js") %>;
+    rdioTab.execute({javascript: defineFunctions})
+    var result = rdioTab.execute({javascript: "VimRdio.getPlaylistNames()"})
 
     // The return value gets printed to STDOUT.
     return result.join("\n");

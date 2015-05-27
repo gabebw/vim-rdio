@@ -3,8 +3,8 @@
 <%= File.read("./js/findRdioTab.js") %>
 
 function run(argv) {
-  var rdioTab = findRdioTab();
-  var definePlayPause = <%= minify_javascript("playPause.js") %>;
-  rdioTab.execute({javascript: definePlayPause});
-  rdioTab.execute({javascript: 'playPause()'})
+  var rdioTab = VimRdio.findRdioTab();
+  var defineFunctions = <%= minify_javascript("all.js") %>;
+  rdioTab.execute({javascript: defineFunctions});
+  rdioTab.execute({javascript: "VimRdio.playPause()"});
 }

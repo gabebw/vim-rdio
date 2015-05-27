@@ -1,6 +1,8 @@
 // vim: filetype=javascript
 
-function findRdioTab(){
+var VimRdio = VimRdio || {};
+
+VimRdio.findRdioTab = function(){
   var app = Application("Google Chrome");
   var rdioTab = undefined;
 
@@ -20,14 +22,11 @@ function findRdioTab(){
 }
 
 
-var playCurrentPlaylist = "function playCurrentPlaylist(){   $(\".PlayButton:visible:first\").click(); }";
-var playFavorites = "function playFavorites(){   setTimeout(playCurrentPlaylist, 3000);    var $linkToFavoritesStation = $(\".user_nav .station_row\");   $linkToFavoritesStation.click(); }";
-var defineFunctions = playCurrentPlaylist + playFavorites;
-
 // The "run" function is automatically run when the file is run, like "main" in
 // some other languages.
 function run(argv){
-  var rdioTab = findRdioTab();
-  rdioTab.execute({javascript: defineFunctions});
-  rdioTab.execute({javascript: "playFavorites()"});
+  var rdioTab = VimRdio.findRdioTab();
+  var defineFunctions = "var VimRdio = VimRdio || {};  VimRdio.getPlaylistNames = function(){   return _.map($(\"a.playlist\"), function(a) { return $(a).prop(\"title\"); }) };  VimRdio.next = function(){   $(\"button.next\").click(); };  VimRdio.playCurrentPlaylist = function(){   $(\".PlayButton:visible:first\").click(); };  VimRdio.playFavorites = function(){   setTimeout(VimRdio.playCurrentPlaylist, 3000);    var $linkToFavoritesStation = $(\".user_nav .station_row\");   $linkToFavoritesStation.click(); };  VimRdio.playPause = function(){   $(\".play_pause\").click(); };  VimRdio.selectAndPlayPlaylist = function(playlistName){   setTimeout(VimRdio.playCurrentPlaylist, 3000);    $(\"a.playlist[title='\" + playlistName + \"']\").click() }";
+  rdioTab.execute({javascript: defineFunctions})
+  rdioTab.execute({javascript: "VimRdio.playFavorites()"});
 }
