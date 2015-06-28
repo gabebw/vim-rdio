@@ -45,8 +45,11 @@ nnoremap <Leader>rf :RdioFavorites<CR>
 
 ## Development
 
-The files in `plugin/applescripts` are generated from the files in `source/`
-directory, because they require minified JS that's easier to generate than
-hand-code.
+* The `plugin/` directory contains `rdio.vim`, which is not auto-generated, and
+  `plugin/applescripts/`, which is auto-generated
+* The `js/` directory contains JS which is minified as part of the build process
+* The `applescripts/` directory contains files which use Erb to bring in and
+  minify the JS, then are copied to `plugin/applescripts/`.
 
-To re-generate the files, run `rake`.
+To re-generate the files in `plugin/applescripts/`, run `rake`. Don't edit them
+directly.
