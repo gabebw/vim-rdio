@@ -11,7 +11,8 @@ Requirements:
 * OS X Yosemite, since it uses Yosemite's [Javascript for Automation] extensively
 * [fzf][fzf] (`brew install fzf`), with the [Vim plugin][fzf-vim] set up
 * fzf requires the `curses` Rubygem: `gem install curses`
-* You must be using Google Chrome
+* You must be using Google Chrome or Safari (Firefox's Applescript does not
+  support sending JS to a tab)
 
 [Javascript for Automation]: https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html
 [fzf]: https://github.com/junegunn/fzf
