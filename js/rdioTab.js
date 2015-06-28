@@ -11,8 +11,8 @@ VimRdio.RdioTab = function(application, tab){
 
 VimRdio.RdioTab.prototype.executeJavascript = function(javascript){
   if(this.application.name() === "Google Chrome"){
-    this.tab.execute({javascript: javascript});
+    return this.tab.execute({javascript: javascript});
   } else if(this.application.name() === "Safari"){
-    this.application.doJavaScript(javascript, {in: this.tab});
+    return this.application.doJavaScript(javascript, {in: this.tab});
   }
 };
