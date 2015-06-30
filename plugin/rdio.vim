@@ -13,7 +13,7 @@ function! s:RdioPlaylists()
   let playlistsCommand = s:ApplescriptCommand('rdio-list-playlists')
   let playlists = system(playlistsCommand)
   " If rdio-list-playlists doesn't find anything, it prints out an LF. This
-  " usually happens when  Rdio isn't open.
+  " usually happens when Rdio isn't open.
   let isEmpty = len(playlists) == 1
   if isEmpty
     echom "!! Rdio isn't open"
