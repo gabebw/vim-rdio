@@ -1,5 +1,12 @@
 # Control Rdio from Vim
 
+## No longer maintained
+
+Unfortunately [Rdio has shut down](http://www.rdio.com/farewell/), so this
+plugin is no longer maintained. :cry:
+
+## The old README, from when Rdio was a Thing
+
 > potentially as useful as [Fugitive]
 
 &mdash; [Someone on the internet](http://www.reddit.com/r/vim/comments/2n04wj/control_rdio_from_vim/cm978ag)
